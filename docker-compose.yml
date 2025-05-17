@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+  dia-assistant:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: dia-assistant
+    restart: unless-stopped
+    privileged: true  # Required for hardware access
+    volumes:
+      # Mount model directories for persistence
+      - ./models:/opt/dia/models
+      # Mount configuration
+      - ./config:/opt/dia/config
+      # Mount logs
+      - ${LOG_DIR:-/var/log/dia}:/var/log/dia
+      # Mount NVMe if available
+      - ${NVME_PATH:-/mnt/nvme/dia}:/mnt/nvme/dia
+      # Mount ALSA configuration for audio devices
+      - /etc/asound.conf:/etc/asound.conf
+      # Mount sound devices
+      - /dev/snd:/dev/snd
+    devices:
+      # Add devices needed for hardware
+      - /dev/snd
+      # For Coral TPU access
+      - ${CORAL_DEVICE:-/dev/bus/usb}:/dev/bus/usb
+    environment:
+      # Environment variables
+      - TZ=America/New_York
+      - DIA_LOG_DIR=/var/log/dia
+      # Uncomment to enable debug mode
+      # - DIA_DEBUG=true
+    network_mode: host  # Required for proper audio device access

@@ -1,0 +1,58 @@
+###############################################
+# Dia Voice Assistant Configuration
+###############################################
+
+# Audio settings
+audio:
+  sample_rate: 16000
+  channels: 1
+  chunk_size: 1024
+  buffer_max_length: 80000  # 5 seconds at 16kHz
+  input_device_name: "ReSpeaker 4 Mic Array"
+  output_device_name: "HiFiBerry DAC+"
+  error_sound_path: "/opt/dia/sounds/error.wav"
+
+# Wake word detection
+wake_word:
+  sensitivity: 0.55
+  model_path: "/opt/dia/models/wake"
+  keyword_path: "/opt/dia/models/wake/hey-dia.ppn"
+
+# Speech recognition
+asr:
+  sample_rate: 16000
+  model_path: "/opt/dia/models/asr/vosk-model-small-en-us-0.15"
+
+# Response generation
+response_generator:
+  engine_type: "rules"  # "llm" or "rules"
+  model_path: "/opt/dia/models/llm"
+  context_size: 2048
+  n_threads: 4
+  max_tokens: 100
+  temperature: 0.7
+  use_mlock: true
+  system_prompt: >
+    You are Dia, a helpful voice assistant running on a Raspberry Pi.
+    Provide concise, accurate responses. You run completely offline.
+  rules_file: "/opt/dia/config/rules.json"
+
+# Text-to-speech
+tts:
+  sample_rate: 22050
+  type: "dia-expressive"
+  model_path: "/opt/dia/models/tts"
+  use_gpu: false
+
+# RAG system (optional)
+rag:
+  enabled: false
+  database_path: "/mnt/nvme/dia/rag"
+  embedding_model: "all-MiniLM-L6-v2"
+
+# Logging
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR, CRITICAL
+  file: "/var/log/dia/dia_assistant.log"
+  max_size: 10485760  # 10 MB
+  backup_count: 5

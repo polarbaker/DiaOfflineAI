@@ -1,0 +1,17 @@
+numpy>=1.20.0
+PyAudio>=0.2.11
+pvporcupine>=2.2.0  # Wake word detection
+vosk>=0.3.45  # Offline speech recognition
+llama-cpp-python>=0.1.77  # Local LLM inference 
+PyYAML>=6.0  # Configuration handling
+SpeechRecognition>=3.8.1  # Additional ASR capabilities
+TTS>=0.14.0  # Text-to-speech synthesis
+psutil>=5.9.0  # System monitoring
+faiss-cpu>=1.7.0  # Vector similarity search for RAG
+pydub>=0.25.1  # Audio processing
+scipy>=1.8.0  # Signal processing
+sqlite3-api>=0.1.0  # SQLite for persistence
+matplotlib>=3.5.1  # For optional visualizations
+tensorflowlite>=2.8.0;platform_machine=='aarch64'  # TFLite for ARM64
+pycoral>=2.0.0;platform_machine=='aarch64'  # Coral TPU API
+hailo-ai>=4.15.0;platform_machine=='aarch64'  # Hailo SDK integration

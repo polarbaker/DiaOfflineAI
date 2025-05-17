@@ -1,0 +1,21 @@
+[Unit]
+Description=Dia Voice Assistant
+After=network.target sound.target
+Wants=sound.target
+
+[Service]
+Type=simple
+User=thomasbaker
+Group=thomasbaker
+Environment=DIA_LOG_DIR=/var/log/dia
+Environment=PYTHONUNBUFFERED=1
+WorkingDirectory=/opt/dia
+ExecStartPre=/bin/mkdir -p /var/log/dia
+ExecStart=/opt/dia/venv/bin/python /opt/dia/src/dia_assistant.py --config /opt/dia/config/dia.yaml
+Restart=on-failure
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
