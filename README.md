@@ -1,6 +1,6 @@
-# DiaBuddy: User-Friendly Offline Voice Assistant for Raspberry Pi
+# DiaOfflineAI: User-Friendly Offline Voice Assistant for Raspberry Pi
 
-An entirely offline voice assistant that runs on Raspberry Pi to detect a custom wake-word, transcribe speech, generate responses, and speak them back in a custom TTS voice. DiaBuddy focuses on user-friendliness, allowing non-technical users to easily install, customize, and use a powerful voice assistant without cloud dependencies.
+An entirely offline voice assistant that runs on Raspberry Pi to detect a custom wake-word, transcribe speech, generate responses, and speak them back in a custom TTS voice. DiaOfflineAI focuses on user-friendliness, allowing non-technical users to easily install, customize, and use a powerful voice assistant without cloud dependencies.
 
 ## Hardware Requirements
 
@@ -90,8 +90,8 @@ dia-assistant/
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/your-org/diabuddy.git
-   cd diabuddy
+   git clone https://github.com/your-org/DiaOfflineAI.git
+   cd DiaOfflineAI
    ```
 
 2. Run the easy setup script:
@@ -110,7 +110,7 @@ The setup script will:
 
 ## Usage
 
-Once installed, DiaBuddy will automatically start on boot. The easiest way to manage it is through the graphical Control Center:
+Once installed, DiaOfflineAI will automatically start on boot. The easiest way to manage it is through the graphical Control Center:
 
 ```bash
 # Launch the graphical control center
